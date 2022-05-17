@@ -5,7 +5,9 @@ using UnityEngine;
 public class BoxCreator : MonoBehaviour
 {
     public GameObject box;
+    public GameObject score;
     public float block;
+
     CameraControl camera;
     
 
@@ -20,18 +22,24 @@ public class BoxCreator : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * camera.gameSpeed * Time.deltaTime);
-        if(block>=8)
+
+        if(block>=10)
         {
-            create_box();
+            create_box(box);
             block = 0f;
+        }
+
+        if (block == 5)
+        {
+            create_box(score);
+            block += 1;
         }
     }
 
-    void create_box()
+    void create_box(GameObject obj)
     {
-        Debug.Log("Box");
         int random = Random.Range(0, 3);
-        GameObject go = GameObject.Instantiate(box) as GameObject;
+        GameObject go = GameObject.Instantiate(obj) as GameObject;
         go.transform.position = gameObject.transform.GetChild(random).position; // 블록의 위치를 이동.
 
     }

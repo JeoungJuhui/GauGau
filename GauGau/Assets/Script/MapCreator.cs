@@ -18,11 +18,13 @@ public class MapCreator : MonoBehaviour
     private FloorBlock last_block;                // 마지막에 생성한 블록.
     private PlayerControl player = null;        // 씬상의 Player를 보관.
     private BlockCreator block_creator;          // BlockCreator를 보관
+    private CameraControl camera = null;
     
     void Start()
     {
         boxCreator = GameObject.Find("BoxRoot").GetComponent<BoxCreator>();
 
+        this.camera = GameObject.Find("Main Camera").GetComponent<CameraControl>();
         this.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         this.last_block.is_created = false;
         this.block_creator = this.gameObject.GetComponent<BlockCreator>();
@@ -32,9 +34,8 @@ public class MapCreator : MonoBehaviour
     void Update()
     {
         // 플레이어의 X위치를 가져온다.
-        float block_generate_x = this.player.transform.position.x;
-        // 그리고 대략 반 화면만큼 오른쪽으로 이동.
-        // 이 위치가 블록을 생성하는 문턱 값이 된다.
+        float block_generate_x = this.camera.transform.position.x;
+
         block_generate_x += BLOCK_WIDTH * ((float)BLOCK_NUM_IN_SCREEN + 1) / 2.0f;
         // 마지막에 만든 블록의 위치가 문턱 값보다 작으면.
         while (this.last_block.position.x < block_generate_x)
@@ -49,7 +50,7 @@ public class MapCreator : MonoBehaviour
         Vector3 block_position; // 이제부터 만들 블록의 위치.
         if(!this.last_block.is_created) { // last_block이 생성되지 않은 경우.
                                           // 블록의 위치를 일단 Player와 같게 한다.
-            block_position = this.player.transform.position;
+            block_position = new Vector3(0,0,0);
             // 그러고 나서 블록의 X 위치를 화면 절반만큼 왼쪽으로 이동.
             block_position.x -= BLOCK_WIDTH * ((float)BLOCK_NUM_IN_SCREEN / 2.0f);
             // 블록의 Y위치는 0으로.
@@ -73,7 +74,7 @@ public class MapCreator : MonoBehaviour
     {
         bool ret = false; // 반환값.
                           // Player로부터 반 화면만큼 왼쪽에 위치, 이 위치가 사라지느냐 마느냐를 결정하는 문턱 값이 됨.
-        float left_limit = this.player.transform.position.x - BLOCK_WIDTH * ((float)BLOCK_NUM_IN_SCREEN / 2.0f);
+        float left_limit = this.camera.transform.position.x - BLOCK_WIDTH * ((float)BLOCK_NUM_IN_SCREEN / 2.0f);
         // 블록의 위치가 문턱 값보다 작으면(왼쪽),
         if (block_object.transform.position.x < left_limit)
         {
