@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    CameraControl cameraControl;
+    float camera;
+
+    [SerializeField]
     public float speed = 6.0f;
     public float screenedge = 10f;
     public int playerPos = 2;
-    CameraControl cameraControl;
-    float camera;
+    public int playerHP = 3;
+    
 
 
     // Start is called before the first frame update
@@ -22,13 +26,9 @@ public class PlayerControl : MonoBehaviour
     {
         camera = GameObject.Find("Main Camera").transform.position.x;
 
-
-
         transform.Translate(Vector3.forward * cameraControl.gameSpeed * Time.deltaTime);
 
-        player_Move();
-
-      
+        player_Move();  
 
     }
 
@@ -57,6 +57,16 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name);
+         if (other.gameObject.tag == "Box")
+            {
+                GameObject.Destroy(other.gameObject);
+                playerHP -= 1;
+            }
+        
+        if (other.gameObject.tag == "bone")
+        {
+            GameObject.Destroy(other.gameObject);
+        }
     }
 
 }
