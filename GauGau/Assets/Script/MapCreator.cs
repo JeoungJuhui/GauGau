@@ -6,7 +6,7 @@ public class MapCreator : MonoBehaviour
 {
     public static float BLOCK_WIDTH = 1.0f; // 블록의 폭.
     public static float BLOCK_HEIGHT = 0.2f; // 블록의 높이.
-    public static int BLOCK_NUM_IN_SCREEN = 24; // 화면 내에 들어가는 블록의 개수.
+    public static int BLOCK_NUM_IN_SCREEN = 52; // 화면 내에 들어가는 블록의 개수.
 
     private struct FloorBlock
     {                                // 블록에 관한 정보를 모아서 관리하는 구조체 (여러 개의 정보를 하나로 묶을 때 사용).
@@ -16,7 +16,7 @@ public class MapCreator : MonoBehaviour
     private FloorBlock last_block;                // 마지막에 생성한 블록.
     private PlayerControl player = null;        // 씬상의 Player를 보관.
     private BlockCreator block_creator;          // BlockCreator를 보관
-                                        
+    
     void Start()
     {
         this.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
