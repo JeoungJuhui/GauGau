@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+    public float gameSpeed = 3;
+
     private GameObject player = null;
     private Vector3 position_offset = Vector3.zero;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +20,7 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.Translate(Vector3.right * 3.0f * Time.deltaTime);
+        transform.Translate(Vector3.right * gameSpeed * Time.deltaTime);
 
     }
 }

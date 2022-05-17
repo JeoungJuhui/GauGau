@@ -8,6 +8,8 @@ public class MapCreator : MonoBehaviour
     public static float BLOCK_HEIGHT = 0.2f; // 블록의 높이.
     public static int BLOCK_NUM_IN_SCREEN = 52; // 화면 내에 들어가는 블록의 개수.
 
+    BoxCreator boxCreator;
+
     private struct FloorBlock
     {                                // 블록에 관한 정보를 모아서 관리하는 구조체 (여러 개의 정보를 하나로 묶을 때 사용).
         public bool is_created;      // 블록이 만들어졌는가.
@@ -19,6 +21,8 @@ public class MapCreator : MonoBehaviour
     
     void Start()
     {
+        boxCreator = GameObject.Find("BoxRoot").GetComponent<BoxCreator>();
+
         this.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         this.last_block.is_created = false;
         this.block_creator = this.gameObject.GetComponent<BlockCreator>();
@@ -61,6 +65,8 @@ public class MapCreator : MonoBehaviour
         this.block_creator.createBlock(block_position);     // 이제까지의 코드에서 설정한 block_position을 건네준다.
         this.last_block.position = block_position;           // last_block의 위치를 이번 위치로 갱신.
         this.last_block.is_created = true;                   // 블록이 생성되었으므로 last_block의 is_created를 true로 설정.
+
+        boxCreator.block += 1;
     }
 
     public bool isDelete(GameObject block_object)

@@ -7,13 +7,14 @@ public class PlayerControl : MonoBehaviour
     public float speed = 6.0f;
     public float screenedge = 10f;
     public int playerPos = 2;
+    CameraControl cameraControl;
     float camera;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        cameraControl = GameObject.Find("Main Camera").GetComponent<CameraControl>();
     }
 
     // Update is called once per frame
@@ -22,33 +23,40 @@ public class PlayerControl : MonoBehaviour
         camera = GameObject.Find("Main Camera").transform.position.x;
 
 
-        //this.transform.Translate(new Vector3(0.0f, 0.0f, 3.0f * Time.deltaTime));
 
-        transform.Translate(Vector3.forward * 3.0f * Time.deltaTime);
+        transform.Translate(Vector3.forward * cameraControl.gameSpeed * Time.deltaTime);
 
+        player_Move();
 
+      
+
+    }
+
+    void player_Move()
+    {
         //switch-case나 FSM으로 변경
-        if(camera+ screenedge > gameObject.transform.position.x)
+        if (camera + screenedge > gameObject.transform.position.x)
             if (Input.GetKey(KeyCode.D))
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
         if (camera - screenedge < gameObject.transform.position.x)
             if (Input.GetKey(KeyCode.A))
-                transform.Translate(Vector3.back * speed*1.5f * Time.deltaTime);
+                transform.Translate(Vector3.back * speed * 1.5f * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.W) && playerPos != 1)
         {
-            Debug.Log("W");
-            transform.position += new Vector3(0, 0, 1.0f);
+            transform.position += new Vector3(0, 0, 2.0f);
             playerPos -= 1;
         }
         if (Input.GetKeyDown(KeyCode.S) && playerPos != 3)
         {
-            Debug.Log("S");
-
-            transform.position += new Vector3(0, 0, -1.0f);
-            playerPos +=1;
+            transform.position += new Vector3(0, 0, -2.0f);
+            playerPos += 1;
         }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject.name);
     }
 
 }
