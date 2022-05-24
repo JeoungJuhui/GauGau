@@ -7,8 +7,9 @@ public class PlayerControl : MonoBehaviour
     GameControl gameControl;
     float camera;
 
+
     [SerializeField]
-    public float speed = 6.0f;
+    public float speed = 13.0f;
     public float screenedge = 10f;
     public int playerPos = 2;
     public int playerHP = 3;

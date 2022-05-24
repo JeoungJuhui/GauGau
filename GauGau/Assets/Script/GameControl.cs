@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    PlayerControl playerControl;
     GameObject pausePanel;
     GameObject gameOverPanel;
     GameObject fillArea;
@@ -24,6 +25,8 @@ public class GameControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+
         progress_slider = GameObject.Find("Slider").GetComponent<Slider>();
         fillArea = GameObject.Find("Fill");
 
@@ -36,9 +39,7 @@ public class GameControl : MonoBehaviour
         stage = 1;
         gameSpeed = 8;
         corutine_is_running = false;
-
-
-
+        Time.timeScale = 1;
 
     }
 
@@ -74,10 +75,6 @@ public class GameControl : MonoBehaviour
 
     }
     
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 
     public void Stagecheck()
     {
@@ -115,6 +112,10 @@ public class GameControl : MonoBehaviour
     {
         corutine_is_running = true;
         float temp = 0;
+
+        if (playerControl.playerHP != 3)
+            playerControl.playerHP += 1;
+
         while (progress<=1)
         {
             temp += Time.deltaTime;
