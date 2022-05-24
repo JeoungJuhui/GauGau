@@ -56,13 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\MapCreator.cs" />
-    <Compile Include="Assets\Script\BoxCreator.cs" />
+    <Compile Include="Assets\Script\Fix\MapCreator.cs" />
+    <Compile Include="Assets\Script\Fix\BoxCreator.cs" />
     <Compile Include="Assets\Script\CameraControl.cs" />
-    <Compile Include="Assets\Script\BlockControl.cs" />
-    <Compile Include="Assets\Script\BlockCreator.cs" />
-    <Compile Include="Assets\Script\PlayerControl.cs" />
+    <Compile Include="Assets\Script\Fix\BlockControl.cs" />
+    <Compile Include="Assets\Script\Fix\BlockCreator.cs" />
     <Compile Include="Assets\Script\UIControl.cs" />
+    <Compile Include="Assets\Script\PlayerControl.cs" />
+    <Compile Include="Assets\Script\GameControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

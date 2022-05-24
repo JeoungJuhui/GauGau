@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    CameraControl cameraControl;
+    GameControl gameControl;
     float camera;
 
     [SerializeField]
@@ -12,23 +12,30 @@ public class PlayerControl : MonoBehaviour
     public float screenedge = 10f;
     public int playerPos = 2;
     public int playerHP = 3;
+    public float score;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraControl = GameObject.Find("Main Camera").GetComponent<CameraControl>();
+        gameControl = GameObject.Find("EventSystem").GetComponent<GameControl>();
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //플레이어 이동
+        player_Move();
+
+        //카메라 이동에 맞춰 이동
         camera = GameObject.Find("Main Camera").transform.position.x;
+        transform.Translate(Vector3.forward * gameControl.gameSpeed * Time.deltaTime);
 
-        transform.Translate(Vector3.forward * cameraControl.gameSpeed * Time.deltaTime);
-
-        player_Move();  
+        //점수 체크
+        score += Time.deltaTime;
+  
 
     }
 
@@ -61,11 +68,15 @@ public class PlayerControl : MonoBehaviour
             {
                 GameObject.Destroy(other.gameObject);
                 playerHP -= 1;
+
+            if (playerHP <= 0)
+                gameControl.GameOver();
             }
         
         if (other.gameObject.tag == "bone")
         {
             GameObject.Destroy(other.gameObject);
+            score += 5.0f;
         }
     }
 
