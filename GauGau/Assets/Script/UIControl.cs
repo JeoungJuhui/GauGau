@@ -8,8 +8,8 @@ public class UIControl : MonoBehaviour
     // Start is called before the first frame update
     PlayerControl player;
     GameObject HP;
-    Text score_text;
-    int score;
+    public Text score_text;
+    public int score;
 
 
     void Start()
@@ -23,6 +23,7 @@ public class UIControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
         hp_image();
         score_update();
     }

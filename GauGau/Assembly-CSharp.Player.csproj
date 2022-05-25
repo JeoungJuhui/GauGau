@@ -61,10 +61,11 @@
     <Compile Include="Assets\Script\CameraControl.cs" />
     <Compile Include="Assets\Script\Fix\BlockControl.cs" />
     <Compile Include="Assets\Script\GameControl.cs" />
+    <Compile Include="Assets\Script\SceneControl.cs" />
     <Compile Include="Assets\Script\Fix\BlockCreator.cs" />
     <Compile Include="Assets\Script\UIControl.cs" />
     <Compile Include="Assets\Script\PlayerControl.cs" />
-    <Compile Include="Assets\Script\SceneControl.cs" />
+    <Compile Include="Assets\Script\TempText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

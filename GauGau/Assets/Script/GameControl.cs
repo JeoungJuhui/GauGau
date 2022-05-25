@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class GameControl : MonoBehaviour
 {
     PlayerControl playerControl;
+    SceneControl sceneControl;
     GameObject pausePanel;
     GameObject gameOverPanel;
     GameObject fillArea;
     Slider progress_slider;
 
     public Text scoreText;
+    public int scoretemp;
 
     bool corutine_is_running;
 
@@ -26,6 +28,7 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+        sceneControl = gameObject.GetComponent<SceneControl>();
 
         progress_slider = GameObject.Find("Slider").GetComponent<Slider>();
         fillArea = GameObject.Find("Fill");
@@ -59,9 +62,8 @@ public class GameControl : MonoBehaviour
         gameOverPanel.SetActive(true);
 
         scoreText = GameObject.Find("GameOverPanel").transform.GetChild(1).GetComponent<Text>();
-        scoreText.text = "Score: " +GameObject.Find("Score").transform.GetChild(0).GetComponent<Text>().text;
+        scoreText.text = "Score: " + (int)playerControl.score;
     }
-
     public void GamePause()
     {
         Time.timeScale = 0;
@@ -74,7 +76,15 @@ public class GameControl : MonoBehaviour
         pausePanel.SetActive(false);
 
     }
-    
+
+    private void GameClear()
+    {
+        scoretemp= (int)playerControl.score;
+
+        sceneControl.GotoClear();
+
+    }
+
 
     public void Stagecheck()
     {
@@ -103,6 +113,12 @@ public class GameControl : MonoBehaviour
                 fillArea.GetComponent<Image>().color = Color.red;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
+                break;
+            case 4:
+                GameClear();
+                stage += 1;
+                break;
+            default:
                 break;
                 
         }

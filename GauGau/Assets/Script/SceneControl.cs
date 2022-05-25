@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
 public class SceneControl : MonoBehaviour
 {
-
 
     public void GotoGame()
     {
@@ -15,6 +15,7 @@ public class SceneControl : MonoBehaviour
     }
     public void GotoClear()
     {
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("ClearScene");
     }
     public void GotoMain()
@@ -25,4 +26,6 @@ public class SceneControl : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }
