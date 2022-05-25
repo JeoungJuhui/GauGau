@@ -7,16 +7,24 @@ public class UIControl : MonoBehaviour
 {
     // Start is called before the first frame update
     PlayerControl player;
+    PlayerSkill playerSkill;
     GameObject HP;
+
     public Text score_text;
     public int score;
+    Image bark_cool_img;
+    Image bite_cool_img;
 
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+        playerSkill= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSkill>();
         score_text = GameObject.Find("Score").transform.GetChild(0).GetComponent<Text>();
         HP = GameObject.Find("HP");
+
+        bark_cool_img = GameObject.Find("BarkCool").transform.GetChild(0).GetComponent<Image>();
+        bite_cool_img = GameObject.Find("BiteCool").transform.GetChild(0).GetComponent<Image>();
 
     }
 
@@ -26,6 +34,7 @@ public class UIControl : MonoBehaviour
      
         hp_image();
         score_update();
+        skill_update();
     }
 
     void hp_image()
@@ -60,6 +69,12 @@ public class UIControl : MonoBehaviour
     {
         score = (int)player.score;
         score_text.text = score.ToString();
+    }
+
+    void skill_update()
+    {
+        bark_cool_img.fillAmount = playerSkill.bark_coolTime;
+        bite_cool_img.fillAmount = playerSkill.bite_coolTime;
     }
     
     

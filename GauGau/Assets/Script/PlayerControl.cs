@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     GameControl gameControl;
+    MusicControl musicControl;
+
     float camera;
 
 
@@ -21,6 +23,8 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         gameControl = GameObject.Find("EventSystem").GetComponent<GameControl>();
+        musicControl = GameObject.Find("EventSystem").GetComponent<MusicControl>();
+
         score = 0;
     }
 
@@ -68,6 +72,7 @@ public class PlayerControl : MonoBehaviour
          if (other.gameObject.tag == "Box")
             {
                 GameObject.Destroy(other.gameObject);
+                musicControl.HurtSound();
                 playerHP -= 1;
 
             if (playerHP <= 0)
@@ -77,6 +82,7 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.tag == "bone")
         {
             GameObject.Destroy(other.gameObject);
+            musicControl.GetCoinSound();
             score += 5.0f;
         }
     }

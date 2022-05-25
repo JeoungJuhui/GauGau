@@ -7,8 +7,11 @@ ScriptsOnlyBuild:
     - CameraControl
     - GameControl
     - MapCreator
+    - MusicControl
     - PlayerControl
+    - PlayerSkill
     - SceneControl
+    - TempText
     - UIControl
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -47,9 +50,35 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1480}
+    - Class: 114
+      Script: {instanceID: 1998}
+    - Class: 114
+      Script: {instanceID: 2288}
+    - Class: 114
+      Script: {instanceID: 2566}
+    - Class: 114
+      Script: {instanceID: 2774}
+    - Class: 114
+      Script: {instanceID: 2842}
+    - Class: 114
+      Script: {instanceID: 3666}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/GameScene.unity:
     - Class: 1
@@ -76,6 +105,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -101,21 +134,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2786}
+      Script: {instanceID: 2788}
     - Class: 114
-      Script: {instanceID: 2840}
+      Script: {instanceID: 2842}
     - Class: 114
-      Script: {instanceID: 3006}
+      Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3502}
+      Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 3764}
+      Script: {instanceID: 3666}
     - Class: 114
-      Script: {instanceID: 4240}
+      Script: {instanceID: 3768}
     - Class: 114
-      Script: {instanceID: 4330}
+      Script: {instanceID: 4244}
     - Class: 114
-      Script: {instanceID: 16590}
+      Script: {instanceID: 4334}
+    - Class: 114
+      Script: {instanceID: 20156}
+    - Class: 114
+      Script: {instanceID: 37512}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -172,9 +209,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2840}
+      Script: {instanceID: 2842}
     - Class: 114
-      Script: {instanceID: 16590}
+      Script: {instanceID: 3504}
+    - Class: 114
+      Script: {instanceID: 3666}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -398,6 +437,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
+      Hash: 10e67a2213fdba923b21643afe547f3d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempText
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -542,7 +587,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 5421e119b4ab0d194e87f9b80dda4776
+      Hash: 65583bfde607113bb1a9cabe2281be45
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameControl
@@ -558,6 +603,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneControl
   - hash:
       serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
@@ -626,7 +677,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 87a4b468c4bf550017725bbcf94f3174
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIControl
@@ -662,10 +713,16 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 5671b1f7e4e136ab5b898a93295fa9f9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: SceneControl
+    className: PlayerSkill
+  - hash:
+      serializedVersion: 2
+      Hash: 7a32f4d038b7ee1a1f9276b00b570926
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MusicControl
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainScene.unity

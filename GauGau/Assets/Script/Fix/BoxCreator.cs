@@ -23,25 +23,53 @@ public class BoxCreator : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * gameControl.gameSpeed * Time.deltaTime);
+        
 
-        if(block>=10)
+        if(block>=12)
         {
-            create_box(box);
+            create_box(box, gameControl.stage);
             block = 0f;
         }
 
-        if (block == 5)
+        if (block == 6)
         {
-            create_box(score);
+            create_box(score, 1);
             block += 1;
         }
     }
 
-    void create_box(GameObject obj)
+    void create_box(GameObject obj, int stage)
     {
+        Debug.Log(stage);
         int random = Random.Range(0, 3);
         GameObject go = GameObject.Instantiate(obj) as GameObject;
         go.transform.position = gameObject.transform.GetChild(random).position; // 블록의 위치를 이동.
+
+        if (stage == 2)
+        {
+            int random2=Random.Range(0, 3);
+            if (random != random2)
+            {
+                GameObject go2 = GameObject.Instantiate(obj) as GameObject;
+                go2.transform.position = gameObject.transform.GetChild(random2).position; // 블록의 위치를 이동.
+            }
+        }
+
+        else if (stage == 3)
+        {
+            int random2 = Random.Range(0, 3);
+            if (random == random2)
+            {
+                if (random2 == 2)
+                    random2 -= 1;
+                else
+                    random2 += 1;
+            }
+
+            GameObject go2 = GameObject.Instantiate(obj) as GameObject;
+            go2.transform.position = gameObject.transform.GetChild(random2).position; // 블록의 위치를 이동.
+        }
+
 
     }
 }

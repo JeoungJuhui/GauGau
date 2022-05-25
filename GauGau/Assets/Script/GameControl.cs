@@ -7,13 +7,19 @@ public class GameControl : MonoBehaviour
 {
     PlayerControl playerControl;
     SceneControl sceneControl;
+    MusicControl musicControl;
+
     GameObject pausePanel;
     GameObject gameOverPanel;
     GameObject fillArea;
     Slider progress_slider;
 
+    public float volume;
+
     public Text scoreText;
     public int scoretemp;
+    public float gameSpeed;
+
 
     bool corutine_is_running;
 
@@ -21,7 +27,6 @@ public class GameControl : MonoBehaviour
     public int stage;
     public float progress;
     public float stage_time;
-    public float gameSpeed;
 
 
     // Start is called before the first frame update
@@ -29,6 +34,7 @@ public class GameControl : MonoBehaviour
     {
         playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         sceneControl = gameObject.GetComponent<SceneControl>();
+        musicControl = GameObject.Find("EventSystem").GetComponent<MusicControl>();
 
         progress_slider = GameObject.Find("Slider").GetComponent<Slider>();
         fillArea = GameObject.Find("Fill");
@@ -40,7 +46,7 @@ public class GameControl : MonoBehaviour
         gameOverPanel.SetActive(false);
 
         stage = 1;
-        gameSpeed = 8;
+        gameSpeed = 5;
         corutine_is_running = false;
         Time.timeScale = 1;
 
@@ -49,6 +55,7 @@ public class GameControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerControl!=null)
         progress_slider.value = progress;
 
         Stagecheck();
@@ -61,6 +68,7 @@ public class GameControl : MonoBehaviour
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
 
+        musicControl.GameOverSound();
         scoreText = GameObject.Find("GameOverPanel").transform.GetChild(1).GetComponent<Text>();
         scoreText.text = "Score: " + (int)playerControl.score;
     }
@@ -80,7 +88,7 @@ public class GameControl : MonoBehaviour
     private void GameClear()
     {
         scoretemp= (int)playerControl.score;
-
+        musicControl.GameClearSound();
         sceneControl.GotoClear();
 
     }
@@ -92,7 +100,7 @@ public class GameControl : MonoBehaviour
         {
             case 1:
                 progress = 0f;
-                stage_time = 5f;
+                stage_time = 60f;
                 fillArea.GetComponent<Image>().color = Color.green;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
@@ -100,16 +108,16 @@ public class GameControl : MonoBehaviour
 
             case 2:
                 progress = 0f;
-                stage_time = 10f;
-                gameSpeed = 11;
+                stage_time = 90f;
+                //gameSpeed = 11;
                 fillArea.GetComponent<Image>().color = Color.blue;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
                 break;
             case 3:
                 progress = 0f;
-                stage_time = 10f;
-                gameSpeed = 13;
+                stage_time = 120f;
+                //gameSpeed = 13;
                 fillArea.GetComponent<Image>().color = Color.red;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
@@ -126,6 +134,8 @@ public class GameControl : MonoBehaviour
 
     IEnumerator ProgressStage()
     {
+        gameSpeed += 2;
+
         corutine_is_running = true;
         float temp = 0;
 

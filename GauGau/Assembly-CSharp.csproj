@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Fix\MapCreator.cs" />
     <Compile Include="Assets\Script\Fix\BoxCreator.cs" />
+    <Compile Include="Assets\Script\TempText.cs" />
     <Compile Include="Assets\Script\CameraControl.cs" />
     <Compile Include="Assets\Script\Fix\BlockControl.cs" />
     <Compile Include="Assets\Script\GameControl.cs" />
@@ -65,7 +66,8 @@
     <Compile Include="Assets\Script\Fix\BlockCreator.cs" />
     <Compile Include="Assets\Script\UIControl.cs" />
     <Compile Include="Assets\Script\PlayerControl.cs" />
-    <Compile Include="Assets\Script\TempText.cs" />
+    <Compile Include="Assets\Script\PlayerSkill.cs" />
+    <Compile Include="Assets\Script\MusicControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

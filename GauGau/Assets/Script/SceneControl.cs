@@ -10,8 +10,8 @@ public class SceneControl : MonoBehaviour
 
     public void GotoGame()
     {
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("GameScene");
-
     }
     public void GotoClear()
     {
