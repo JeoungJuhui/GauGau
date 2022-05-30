@@ -109,7 +109,6 @@ public class GameControl : MonoBehaviour
             case 2:
                 progress = 0f;
                 stage_time = 90f;
-                //gameSpeed = 11;
                 fillArea.GetComponent<Image>().color = Color.blue;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
@@ -117,7 +116,6 @@ public class GameControl : MonoBehaviour
             case 3:
                 progress = 0f;
                 stage_time = 120f;
-                //gameSpeed = 13;
                 fillArea.GetComponent<Image>().color = Color.red;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
@@ -134,6 +132,10 @@ public class GameControl : MonoBehaviour
 
     IEnumerator ProgressStage()
     {
+        if(stage==1)
+        {
+            gameSpeed = 5;
+        }
         gameSpeed += 2;
 
         corutine_is_running = true;
