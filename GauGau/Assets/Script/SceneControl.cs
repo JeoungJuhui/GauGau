@@ -10,7 +10,7 @@ public class SceneControl : MonoBehaviour
 
     public void GotoGame()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene("GameScene");
     }
     public void GotoClear()

@@ -16,6 +16,7 @@ public class PlayerControl : MonoBehaviour
     public int playerPos = 2;
     public int playerHP = 3;
     public float score;
+    public bool ispool;
     
 
 
@@ -24,7 +25,7 @@ public class PlayerControl : MonoBehaviour
     {
         gameControl = GameObject.Find("EventSystem").GetComponent<GameControl>();
         musicControl = GameObject.Find("EventSystem").GetComponent<MusicControl>();
-
+        ispool = false;
         score = 0;
     }
 
@@ -32,7 +33,8 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //플레이어 이동
-        player_Move();
+        if(!ispool)
+            player_Move();
 
         //카메라 이동에 맞춰 이동
         camera = GameObject.Find("Main Camera").transform.position.x;

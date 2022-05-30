@@ -111,7 +111,6 @@ public class PlayerSkill : MonoBehaviour
         float temp = 0f;
         while(bite_coolTime<1)
         {
-            Debug.Log("cooltime "+ bite_coolTime);
 
             temp += Time.deltaTime;
             bite_coolTime = temp / biteTime;
