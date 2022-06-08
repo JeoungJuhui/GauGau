@@ -11,10 +11,10 @@ public class GameControl : MonoBehaviour
 
     GameObject pausePanel;
     GameObject gameOverPanel;
-    public GameObject fillArea;
+    GameObject musicPanel;
+    
+    GameObject fillArea;
     Slider progress_slider;
-
-    public float volume;
 
     public Text scoreText;
     public int scoretemp;
@@ -44,6 +44,9 @@ public class GameControl : MonoBehaviour
 
         gameOverPanel = GameObject.Find("GameOverPanel");
         gameOverPanel.SetActive(false);
+
+        musicPanel = GameObject.Find("MusicPanel");
+        musicPanel.SetActive(false);
 
         stage = 1;
         gameSpeed = 5;
@@ -100,7 +103,7 @@ public class GameControl : MonoBehaviour
         {
             case 1:
                 progress = 0f;
-                stage_time = 10f;
+                stage_time = 20f;
                 fillArea.GetComponent<Image>().color = Color.green;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
@@ -108,21 +111,21 @@ public class GameControl : MonoBehaviour
 
             case 2:
                 progress = 0f;
-                stage_time = 10f;
+                stage_time = 40f;
                 fillArea.GetComponent<Image>().color = Color.blue;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
                 break;
             case 3:
                 progress = 0f;
-                stage_time = 10f;
+                stage_time = 70f;
                 fillArea.GetComponent<Image>().color = Color.red;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());
                 break;
             case 4:
                 progress = 0f;
-                stage_time = 120f;
+                stage_time = 100f;
                 fillArea.GetComponent<Image>().color = Color.yellow;
                 if (!corutine_is_running)
                     StartCoroutine(ProgressStage());

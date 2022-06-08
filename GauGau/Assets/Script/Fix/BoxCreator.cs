@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoxCreator : MonoBehaviour
 {
     GameControl gameControl;
+    PlayerSkill playerSkill;
 
     public GameObject box;
     public GameObject score;
@@ -17,6 +18,7 @@ public class BoxCreator : MonoBehaviour
     void Start()
     {
         gameControl = GameObject.Find("EventSystem").GetComponent<GameControl>();
+        playerSkill = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSkill>();
         block = 0f;
     }
 
@@ -70,11 +72,10 @@ public class BoxCreator : MonoBehaviour
             go2.transform.position = gameObject.transform.GetChild(random2).position; // 블록의 위치를 이동.
         }
 
-        if (stage == 4)
+        if (stage == 4 && playerSkill.bite)
         {
-            int random3 = Random.Range(0, 10);
-            Debug.Log(random3);
-            if (random3 >= 8)
+            int random3 = Random.Range(0, 5);
+            if (random3 ==0)
             {
                 GameObject go2 = GameObject.Instantiate(pool) as GameObject;
                 go2.transform.position = gameObject.transform.GetChild(1).position; // 블록의 위치를 이동.

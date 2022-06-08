@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MusicControl : MonoBehaviour
 {
@@ -30,18 +32,33 @@ public class MusicControl : MonoBehaviour
 
     public AudioClip CoinSound;
 
+    //volume
+    public float volume;
+    public float BGMvolume;
+
+    //Slider
+    Slider musicSlider;
+    Slider BGMSlider;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         BGMaudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         gameControl = gameObject.GetComponent<GameControl>();
+
+        BGMSlider = GameObject.Find("BGMSlider").GetComponent<Slider>();
+        musicSlider = GameObject.Find("musicSlider").GetComponent<Slider>();
+        musicSlider.value = 1.0f;
+        BGMSlider.value = 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        audioSource.volume = musicSlider.value;
+        BGMaudioSource.volume = BGMSlider.value;
+        
         switch (gameControl.stage)
         {
             case 1:

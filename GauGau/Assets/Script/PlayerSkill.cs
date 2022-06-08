@@ -46,7 +46,7 @@ public class PlayerSkill : MonoBehaviour
 
     IEnumerator Bark_Time()
     {
-        float temp = gameControl.gameSpeed;
+        //float temp = gameControl.gameSpeed;
         bark = false;
         musicControl.BarkSound();
         StartCoroutine(BarkCoolTime());
@@ -55,14 +55,20 @@ public class PlayerSkill : MonoBehaviour
 
         while(tempTime<5.0f)
         {
-            gameControl.gameSpeed = 5;
+            gameControl.gameSpeed = 3;
 
             tempTime += Time.deltaTime;
             yield return null;
         }
 
-        gameControl.gameSpeed = temp;
-
+        if (gameControl.stage == 1)
+            gameControl.gameSpeed = 7;
+        else if (gameControl.stage == 2)
+            gameControl.gameSpeed = 9;
+        else if (gameControl.stage == 3)
+            gameControl.gameSpeed = 11;
+        else if (gameControl.stage == 4)
+            gameControl.gameSpeed = 13;
         yield break;
 
     }

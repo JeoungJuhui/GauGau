@@ -16,7 +16,6 @@ public class MapCreator : MonoBehaviour
         public Vector3 position;     // 블록의 위치.
     };
     private FloorBlock last_block;                // 마지막에 생성한 블록.
-    private PlayerControl player = null;        // 씬상의 Player를 보관.
     private BlockCreator block_creator;          // BlockCreator를 보관
     private CameraControl camera = null;
     
@@ -25,7 +24,6 @@ public class MapCreator : MonoBehaviour
         boxCreator = GameObject.Find("BoxRoot").GetComponent<BoxCreator>();
 
         this.camera = GameObject.Find("Main Camera").GetComponent<CameraControl>();
-        this.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
         this.last_block.is_created = false;
         this.block_creator = this.gameObject.GetComponent<BlockCreator>();
     }
@@ -49,7 +47,7 @@ public class MapCreator : MonoBehaviour
     {
         Vector3 block_position; // 이제부터 만들 블록의 위치.
         if(!this.last_block.is_created) { // last_block이 생성되지 않은 경우.
-                                          // 블록의 위치를 일단 Player와 같게 한다.
+
             block_position = new Vector3(0,0,0);
             // 그러고 나서 블록의 X 위치를 화면 절반만큼 왼쪽으로 이동.
             block_position.x -= BLOCK_WIDTH * ((float)BLOCK_NUM_IN_SCREEN / 2.0f);

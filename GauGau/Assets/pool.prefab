@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2925135569507962255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 5, y: 0.2, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,4 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac9aa5962c55784c963c22400a4ae4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool_time: 5
+  poolmaterial: {fileID: 2100000, guid: 7cf466a1f9c0d8749b051e42764727ce, type: 2}
+  defaultmaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  map_creator: {fileID: 0}

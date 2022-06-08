@@ -23,7 +23,6 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        gameControl.gameSpeed = GameObject.Find("EventSystem").GetComponent<GameControl>().gameSpeed;
 
         transform.Translate(Vector3.right * gameControl.gameSpeed * Time.deltaTime);
 

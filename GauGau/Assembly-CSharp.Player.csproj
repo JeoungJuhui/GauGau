@@ -66,9 +66,12 @@
     <Compile Include="Assets\Script\GameControl.cs" />
     <Compile Include="Assets\Script\SceneControl.cs" />
     <Compile Include="Assets\Script\Fix\BlockCreator.cs" />
+    <Compile Include="Assets\Script\PoolControl.cs" />
     <Compile Include="Assets\Script\UIControl.cs" />
     <Compile Include="Assets\Script\PlayerControl.cs" />
-    <Compile Include="Assets\Script\PoolControl.cs" />
+    <Compile Include="Assets\Script\DropControl.cs" />
+    <Compile Include="Assets\Script\PosControl.cs" />
+    <Compile Include="Assets\Script\BoxControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
