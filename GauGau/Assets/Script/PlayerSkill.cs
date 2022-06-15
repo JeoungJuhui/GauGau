@@ -97,7 +97,6 @@ public class PlayerSkill : MonoBehaviour
         float temp = 0f;
         while (bark_coolTime < 1)
         {
-            Debug.Log("cooltime " + bark_coolTime);
 
             temp += Time.deltaTime;
             bark_coolTime = temp /barkTime;

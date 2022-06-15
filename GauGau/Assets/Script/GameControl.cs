@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
-    PlayerControl playerControl;
+    PlayerControl playerControl=null;
     SceneControl sceneControl;
     MusicControl musicControl;
 
@@ -33,11 +33,13 @@ public class GameControl : MonoBehaviour
     void Start()
     {
         playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-        sceneControl = gameObject.GetComponent<SceneControl>();
         musicControl = GameObject.Find("EventSystem").GetComponent<MusicControl>();
 
+        sceneControl = gameObject.GetComponent<SceneControl>();
+
+
         progress_slider = GameObject.Find("Slider").GetComponent<Slider>();
-        fillArea = GameObject.Find("Fill");
+        fillArea = GameObject.Find("Fill Area").transform.GetChild(0).gameObject;
 
         pausePanel = GameObject.Find("PausePanel");
         pausePanel.SetActive(false);

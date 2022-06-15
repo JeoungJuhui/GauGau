@@ -852,7 +852,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2022449545}
         m_TargetAssemblyTypeName: SceneControl, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: GotoGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

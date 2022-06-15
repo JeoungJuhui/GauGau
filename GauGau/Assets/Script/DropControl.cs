@@ -25,8 +25,12 @@ public class DropControl : MonoBehaviour
         time += Time.deltaTime;
 
         float progress = gameControl.progress;
-
-        if(gameControl.stage>2 && time>10)
+        float temp;
+        if (gameControl.stage == 4)
+            temp = 8.0f;
+        else
+            temp = 10f;
+        if(gameControl.stage>2 && time>temp)
         {
             Debug.Log("Drop");
             Create_Pos(dropPos,0.6f);

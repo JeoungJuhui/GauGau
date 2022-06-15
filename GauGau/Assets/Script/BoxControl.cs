@@ -12,6 +12,7 @@ public class BoxControl : MonoBehaviour
     void Start()
     {
         gameControl = GameObject.Find("EventSystem").GetComponent<GameControl>();
+
     }
 
     // Update is called once per frame
@@ -22,6 +23,8 @@ public class BoxControl : MonoBehaviour
 
         if (time >= 3.0f)
             transform.Translate(-Vector3.up * gameControl.gameSpeed * Time.deltaTime);
+        if (this.transform.position.y < -10)
+            Destroy(this.gameObject);
     }
 
 }

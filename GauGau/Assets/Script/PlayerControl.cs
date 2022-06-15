@@ -6,8 +6,14 @@ public class PlayerControl : MonoBehaviour
 {
     GameControl gameControl;
     MusicControl musicControl;
+    MeshRenderer meshRenderer;
 
     float camera;
+    public int hp;
+
+    public Material poolmaterial;
+    public Material defaultmaterial;
+    private float pool_time = 3.0f;
 
 
     [SerializeField]
@@ -23,6 +29,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
         gameControl = GameObject.Find("EventSystem").GetComponent<GameControl>();
         musicControl = GameObject.Find("EventSystem").GetComponent<MusicControl>();
         ispool = false;
@@ -87,6 +94,45 @@ public class PlayerControl : MonoBehaviour
             musicControl.GetCoinSound();
             score += 5.0f;
         }
+
+        if (other.gameObject.tag == "Pool" && !ispool)
+        {
+            hp = playerHP;
+            StartCoroutine(InPool());
+        }
     }
 
+    IEnumerator InPool()
+    {
+        ispool = true;
+        float temp = 0f;
+        gameControl.gameSpeed = 8.0f;
+
+        meshRenderer.material = poolmaterial;
+
+        while (temp < pool_time)
+        {
+            //Debug.Log(temp);
+            temp += Time.deltaTime;
+
+            if (hp != playerHP)
+            {
+                hp = playerHP;
+                break;
+            }
+
+            yield return null;
+
+        }
+
+        meshRenderer.material = defaultmaterial;
+
+        gameControl.gameSpeed = 13.0f;
+        ispool = false;
+
+        yield break;
+
+
+
+    }
 }

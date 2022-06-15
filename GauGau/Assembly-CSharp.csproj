@@ -58,20 +58,21 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Fix\MapCreator.cs" />
     <Compile Include="Assets\Script\MusicControl.cs" />
+    <Compile Include="Assets\Script\BoxControl.cs" />
     <Compile Include="Assets\Script\Fix\BoxCreator.cs" />
     <Compile Include="Assets\Script\PlayerSkill.cs" />
     <Compile Include="Assets\Script\TempText.cs" />
     <Compile Include="Assets\Script\CameraControl.cs" />
+    <Compile Include="Assets\Script\PosControl.cs" />
     <Compile Include="Assets\Script\Fix\BlockControl.cs" />
     <Compile Include="Assets\Script\GameControl.cs" />
     <Compile Include="Assets\Script\SceneControl.cs" />
     <Compile Include="Assets\Script\Fix\BlockCreator.cs" />
+    <Compile Include="Assets\Script\DropControl.cs" />
     <Compile Include="Assets\Script\PoolControl.cs" />
     <Compile Include="Assets\Script\UIControl.cs" />
     <Compile Include="Assets\Script\PlayerControl.cs" />
-    <Compile Include="Assets\Script\DropControl.cs" />
-    <Compile Include="Assets\Script\PosControl.cs" />
-    <Compile Include="Assets\Script\BoxControl.cs" />
+    <Compile Include="Assets\Script\EnvironCreate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
