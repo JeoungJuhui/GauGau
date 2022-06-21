@@ -56,23 +56,26 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Fix\MapCreator.cs" />
+    <Compile Include="Assets\Script\Create\MapCreator.cs" />
     <Compile Include="Assets\Script\MusicControl.cs" />
-    <Compile Include="Assets\Script\BoxControl.cs" />
-    <Compile Include="Assets\Script\Fix\BoxCreator.cs" />
+    <Compile Include="Assets\Script\Control\BoxControl.cs" />
+    <Compile Include="Assets\Script\Create\BoxCreator.cs" />
     <Compile Include="Assets\Script\PlayerSkill.cs" />
     <Compile Include="Assets\Script\TempText.cs" />
     <Compile Include="Assets\Script\CameraControl.cs" />
-    <Compile Include="Assets\Script\PosControl.cs" />
-    <Compile Include="Assets\Script\Fix\BlockControl.cs" />
+    <Compile Include="Assets\Script\Control\PosControl.cs" />
+    <Compile Include="Assets\Script\Control\BlockControl.cs" />
+    <Compile Include="Assets\Script\Create\EnvironCreate.cs" />
     <Compile Include="Assets\Script\GameControl.cs" />
     <Compile Include="Assets\Script\SceneControl.cs" />
-    <Compile Include="Assets\Script\Fix\BlockCreator.cs" />
-    <Compile Include="Assets\Script\DropControl.cs" />
-    <Compile Include="Assets\Script\PoolControl.cs" />
+    <Compile Include="Assets\Script\Create\BlockCreator.cs" />
+    <Compile Include="Assets\Script\Control\DropControl.cs" />
+    <Compile Include="Assets\Script\Control\PoolControl.cs" />
     <Compile Include="Assets\Script\UIControl.cs" />
     <Compile Include="Assets\Script\PlayerControl.cs" />
-    <Compile Include="Assets\Script\EnvironCreate.cs" />
+    <Compile Include="Assets\Script\PlayerFSM.cs" />
+    <Compile Include="Assets\Script\Create\ObjCreator.cs" />
+    <Compile Include="Assets\Script\Control\ObjControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

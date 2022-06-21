@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 331022185}
   - component: {fileID: 331022181}
   - component: {fileID: 331022186}
+  - component: {fileID: 331022187}
   - component: {fileID: 331022180}
   m_Layer: 0
   m_Name: Player
@@ -796,12 +797,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6acab5185df5fd748ae8cd63940065e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  poolmaterial: {fileID: 2100000, guid: 7cf466a1f9c0d8749b051e42764727ce, type: 2}
-  defaultmaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   speed: 7
   screenedge: 10
   playerPos: 2
+  state: 0
+  hp: 0
+  poolmaterial: {fileID: 2100000, guid: 7cf466a1f9c0d8749b051e42764727ce, type: 2}
+  defaultmaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   playerHP: 3
   score: 0
   ispool: 0
@@ -917,6 +919,22 @@ MonoBehaviour:
   bite_coolTime: 0
   bite: 0
   bark: 0
+--- !u!114 &331022187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331022179}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8218e5b533516054b9f8526e251b1c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 13
+  screenedge: 10
+  playerPos: 2
+  state: 0
 --- !u!1 &353657619
 GameObject:
   m_ObjectHideFlags: 0
